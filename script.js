@@ -15,25 +15,53 @@
 
 
 
-var randomNumber = [];
-var numeroCasuale;
-var minNumber = 0
-var maxNumber = 10
 
+// array numery random generati
+var randomNumbers = [];
+// array nummeri inseriti dal utente
+var userNumbersAdd = [];
+// variabile generatore random
+var randomGenerator;
+// variabile utente prompt
+var userPromt;
+// variabili globali  min e max  
+var minNumber = 1;
+var maxNumber = 100;
 
-
+// ciclo  che genera 5 numeri casuali e li fa vedere in prompt
 for (var i = 0; i < 5; i++) {
-    numeroCasuale = generateNumberRandom(minNumber,maxNumber);
-    console.log(numeroCasuale);
-    randomNumber.push(numeroCasuale);
+    randomGenerator = generatorRandonNumber(minNumber, maxNumber);
+    console.log(randomGenerator);
+    randomNumbers.push(randomGenerator);
 }
-console.log(randomNumber);
-alert("Cerca di memorizzare questi cinque numeri: " + randomNumber);
 
+console.log(randomNumbers);
+alert("Cerca di memorizzare questi cinque numeri: " + randomNumbers);
 
+// funzione con il  timer"setTimeout" con un ciclo  promp che chiede 5 volte di inserire un nr al utente 
+//  ulteriormente  fa il controlo se il nr inserito e presente in numeri generati random e se si li va vedere tramite alert 
 
-function generateNumberRandom(min, max) {
-    return Math.floor(Math.random() * (max - min)) + max;
+setTimeout(function () {
+    for (var i = 0; i < 5; i++) {
+        userPromt = parseInt(prompt("inserisci i numeri che ricordi"));
+        for (var f = 0; f < randomNumbers.length; f++) {
+
+            if (userPromt === randomNumbers[f]){
+                userNumbersAdd.push(userPromt);
+            } 
+        }
+
+    }
+
+    alert("Hai indovinato " + userNumbersAdd.length + " numeri. Esattamente i numeri: " + userNumbersAdd)
+    console.log(userNumbersAdd)
+
+}, 3000)
+
+// funzione  number generator random
+function generatorRandonNumber(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
 }
+
 
 
