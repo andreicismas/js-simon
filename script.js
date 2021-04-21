@@ -43,12 +43,17 @@ alert("Cerca di memorizzare questi cinque numeri: " + randomNumbers);
 
 setTimeout(function () {
     for (var i = 0; i < 5; i++) {
-        userPromt = parseInt(prompt("inserisci i numeri che ricordi"));
-        for (var f = 0; f < randomNumbers.length; f++) {
+       userPromt = parseInt(prompt("inserisci i numeri che ricordi"));
+        if(!userPromt && isNaN(userPromt)){
+            alert("numero non inserito ")
+        }else{
 
-            if (userPromt === randomNumbers[f]){
-                userNumbersAdd.push(userPromt);
-            } 
+            for (var f = 0; f < randomNumbers.length; f++) {
+                
+                if (userPromt === randomNumbers[f]){
+                    userNumbersAdd.push(userPromt);
+                } 
+            }
         }
 
     }
