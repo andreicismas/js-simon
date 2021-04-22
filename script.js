@@ -13,9 +13,8 @@
 
 
 
-
-
-
+(function () {
+   
 // array numery random generati
 var randomNumbers = [];
 // array nummeri inseriti dal utente
@@ -69,4 +68,5 @@ function generatorRandonNumber(min, max) {
 }
 
 
+})();
 
