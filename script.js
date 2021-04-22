@@ -15,9 +15,9 @@
 
 (function () {
    
-// array numery random generati
+// array numeri random generati
 var randomNumbers = [];
-// array nummeri inseriti dal utente
+// array numeri inseriti dal utente
 var userNumbersAdd = [];
 // variabile generatore random
 var randomGenerator;
@@ -43,7 +43,8 @@ alert("Cerca di memorizzare questi cinque numeri: " + randomNumbers);
 setTimeout(function () {
     for (var i = 0; i < 5; i++) {
        userPromt = parseInt(prompt("inserisci i numeri che ricordi"));
-        if(!userPromt && isNaN(userPromt)){
+        if(!userPromt || isNaN(userPromt)){
+            i--
             alert("numero non inserito ")
         }else{
 
